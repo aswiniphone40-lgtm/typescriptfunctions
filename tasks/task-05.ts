@@ -60,5 +60,22 @@ function calculateAverage(scores: number[]): number {
 }
 
 function countPassedStudents(scores: number[]): number {
-
+  let count = 0;
+  for (let i = 0; i < scores.length; i++) {
+    if (scores[i] >= 75) {
+      count++;
+    }
+  }
+  return count;
 }
+
+function displayReport(scores: number[]): void {
+  console.log("=== Student Scores Report ===");
+  console.log(`Highest Score : ${findHighestScore(scores)}`);
+  console.log(`Lowest Score  : ${findLowestScore(scores)}`);
+  console.log(`Average Score : ${calculateAverage(scores).toFixed(2)}`);
+  console.log(`Passed Students: ${countPassedStudents(scores)} out of ${scores.length}`);
+}
+
+
+displayReport(scores);
